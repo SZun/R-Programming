@@ -45,3 +45,48 @@ list_rl1
 rm(list_rl1)
 list_rl1 <- list(Machine="RL1", Stats=util_stats_rl1, LowThreshold=util_under_90_flag)
 list_rl1
+
+# Access
+list_rl1
+list_rl1[1]
+list_rl1[[1]]
+list_rl1$Machine
+
+list_rl1[2]
+typeof(list_rl1[2])
+list_rl1[[2]]
+typeof(list_rl1[[2]])
+list_rl1$Stats
+typeof(list_rl1$Stats)
+
+list_rl1
+list_rl1[[2]][3]
+list_rl1$Stats[3]
+
+# Adding/Deleting components
+list_rl1
+list_rl1[4] <- "New Information."
+list_rl1
+
+list_rl1$UnknownHours <- RL1[is.na(RL1$Utilization), "PosixTime"]
+list_rl1
+
+list_rl1[4] <- NULL
+list_rl1
+
+list_rl1[4]
+
+# DataFrame
+list_rl1$Data <- RL1
+list_rl1
+summary(list_rl1)
+str(list_rl1)
+
+# Subsetting
+list_rl1
+
+list_rl1[[4]][1]
+list_rl1$UnknownHours[1]
+
+list_rl1[1:3]
+list_rl1[c(1,4)]
