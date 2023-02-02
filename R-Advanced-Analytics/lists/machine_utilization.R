@@ -90,3 +90,29 @@ list_rl1$UnknownHours[1]
 
 list_rl1[1:3]
 list_rl1[c(1,4)]
+
+sublist_rl1 <- list_rl1[c("Machine","Stats")]
+sublist_rl1
+sublist_rl1[[2]][2]
+sublist_rl1$Stats[2]
+### Wrong
+sublist_rl1[[1:3]]
+
+# Plotting
+library(ggplot2)
+
+p <- ggplot(data=util)
+myplot <- p + geom_line(aes(x=PosixTime,y=Utilization, color=Machine),size=1.2) + 
+  facet_grid(Machine~.) +
+  geom_hline(yintercept = .9,
+             color="Gray",
+             size=1.2,
+             linetype=3)
+
+list_rl1$Plot <- myplot
+list_rl1
+summary(list_rl1)
+str(list_rl1)
+
+list_rl1
+
